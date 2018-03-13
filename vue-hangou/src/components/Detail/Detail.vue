@@ -1,7 +1,8 @@
 <template>
 	<div class="detail">
         <div class="header-l"> <a class="header-nav" href="javascript:history.go(-1)"> <i class="fa fa-angle-left"></i> </a> 
-            <a class="header-nav" href="javascript:void(0);"><i class="fa fa-ellipsis-h"></i></a>
+            <a class="header-nav" @click="toggleNav()" href="javascript:void(0);"><i class="fa fa-ellipsis-h"></i></a>
+            <nctouch-nav  v-if="isNavShow" :isNavShow="isNavShow" :toggleNav="toggleNav"></nctouch-nav>
         </div>
         
         <div class="goods-detail-top swiper-container">
@@ -193,6 +194,7 @@
 	//引入axios用来获取数据 下载方法cnpm i axios -S
 	import axios from 'axios'
 import Swiper from 'swiper'	
+import NctouchNav from '../NctouchNav/NctouchNav.vue'
 	export default{
         name:'detail',
 		data(){
@@ -203,12 +205,19 @@ import Swiper from 'swiper'
 				mores:[],
 				add:{},
 				isShow:false,
-				num:1
+				num:1,
+				isNavShow:false
 
 
 			}
 		},
+		components:{
+			NctouchNav
+		},
 		methods:{
+			toggleNav(){				
+				this.isNavShow = !this.isNavShow
+			},
 			getGoods(){
 				//this.$root.config.host是在modules下的config文件里配置的域名
 				//mz是和config目录里index文件配置的信息交互
@@ -355,7 +364,7 @@ import Swiper from 'swiper'
 .goods-detail-price dt em { font-size: 1rem;}
 .goods-detail-price dd { display: inline-block; font-size: 0.55rem; text-decoration: line-through; color: #999; line-height: 0.9rem;}
 .goods-detail-price .activity { display: inline-block; font-size: 0.45rem;}
-.goods-detail-price .sold { position: absolute; z-index: 1; top: 0.25rem; right: 0.75rem; display: block; font-size: 0.55rem; line-height: 2rem; height: 1rem;}
+.goods-detail-price .sold { position: absolute; z-index: 1; top: 0rem; right: 0.75rem; display: block; font-size: 0.55rem; line-height: 1rem; height: 1rem;}
 .goods-detail-price .activity { font-size: 0.45rem; line-height: 0.6rem; vertical-align: middle; display: inline-block; height: 0.6rem; padding-right: 0.1rem; margin-top: 0.05rem; border: solid #EC5464 0.05rem; color: #EC5464;}
 // .goods-detail-price .activity i { display: inline-block; vertical-align: middle; margin-right: 0.1rem; width: 0.6rem; height: 0.6rem; background: #ED5564 url(../images/mobile_w.png) no-repeat 50% 50%; background-size: 80%;}
 

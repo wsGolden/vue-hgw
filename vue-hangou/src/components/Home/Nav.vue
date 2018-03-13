@@ -44,7 +44,7 @@ export default {
                 float: left;
                 width: 25%;
                 height: 3.7rem;
-                padding: 0.5rem 0 0.3rem 0;
+                padding: 0.28rem 0 0.3rem 0;
                 p{
                         display: block;
                     font-size: 0.6rem;

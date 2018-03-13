@@ -4,7 +4,8 @@
         <header id="header" class="transparent">
             <div class="logo"></div>
             <div class="header-wrap">
-                <router-link :to="{name:'search'}" class="header-inp"><i class='fa fa-search'></i></router-link> 
+                <router-link :to="{name:'search'}" class="header-inp">
+                	<i class='ssearch'></i></router-link> 
                 <a href="" class="m-cart"></a>
             </div>
     </header>
@@ -51,7 +52,7 @@ export default {
                 border-radius: 20px;
                 height: 35px;
                 background: #fff;
-                .fa-search{
+                .ssearch{
                      display: block;
                     width: 35px;
                     height: 35px;

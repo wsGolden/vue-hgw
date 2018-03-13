@@ -3,28 +3,28 @@
     <div id="footnav" class="footnav clearfix">
         <ul>
             <li>
-                <a href="">
+              <router-link  class="footss" :to="{name:'home'}">
                     <i class="fa fa-home"></i>
                     <p>首页</p>
-                </a>
+               </router-link>
             </li>
              <li>
-                <a href="">
+               <router-link  class="footss" :to="{name:'Discovery'}">
                     <i class="fa  fa-shopping-cart"></i>
                     <p>发现</p>
-                </a>
+              </router-link>
             </li>
              <li>
-                <a href="">
+                 <router-link class="footss" :to="{name:'Category'}">
                     <i class="fa fa-th-list"></i>
                     <p>类目</p>
-                </a>
+                </router-link>
             </li>
              <li>
-                <a href="">
+                <router-link class="footss" :to="{name:'Category'}">
                     <i class="fa fa-user-circle-o"></i>
                     <p>我的商城</p>
-                </a>
+                 </router-link>
             </li>
         </ul>
     </div>
@@ -54,7 +54,7 @@ export default {
                     width: 25%;
                     padding: 0.2rem 0 0.2rem 0;
                     float: left;
-                    a{    
+                    .footss{    
                      display: block;
                       position: relative;
                             i{

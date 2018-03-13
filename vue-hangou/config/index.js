@@ -35,7 +35,14 @@ module.exports = {
          "/mo": {
             target: "http://www.hangowa.com",
             changeOrigin: true
-        }
+        },
+        '/hg':{
+        target:'http://www.hangowa.com/',
+        pathRewrite:{
+          '^/hg':''
+        },
+        changeOrigin:true
+      }
     },
 
     // Various Dev Server settings

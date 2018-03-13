@@ -102,7 +102,7 @@ export default {
 					display: flex;
 					flex-flow:wrap;
 					.good-item{
-						width: 50%;
+						width: 48%;
 						padding: 5px 2.5px 0px;
 						//   display: inline-block;
 						margin-bottom:0px;
