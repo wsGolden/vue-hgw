@@ -7,6 +7,8 @@ import SearchItem from '../components/common/Search/SearchItem.vue'
 import Discovery from '../components/Discovery/Discovery.vue'
 import Category from '../components/Category/Category.vue'
 import User from '../components/User/User.vue'
+import Login from '../components/Login/Login.vue'
+import Register from '../components/Register/Register.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -45,6 +47,16 @@ export default new Router({
       path: '/user',
       name: 'User',
       component: User
+    },
+    {
+    	path: '/login',
+      name: 'Login',
+      component: Login
+    },
+    {
+    	path: '/register',
+      name: 'Register',
+      component: Register
     }
   ]
 })

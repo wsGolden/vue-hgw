@@ -15,7 +15,7 @@
 	    </div>
 	    <div class="header-r" @click="toggleNav()"> 
 	    	<a id="header-nav" href="javascript:void(0);">
-	    		<i class="fa fa-sort-desc"></i>	    		
+	    		<i class="fa fa-ellipsis-h"></i>	    		
 	    	</a> 
 	    </div>
 		<nctouch-nav  v-if="isNavShow" :isNavShow="isNavShow" :toggleNav="toggleNav"></nctouch-nav>

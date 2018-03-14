@@ -12,7 +12,7 @@
 		
 		<div class="header-r"  @click="toggleNav()">
 			<a href="javascript:void(0);">
-				<i class="fa fa-sort-desc"></i>
+				<i class="fa fa-ellipsis-h"></i>
 			</a>
 		</div>
 		
