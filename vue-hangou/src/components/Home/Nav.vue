@@ -1,9 +1,15 @@
 <template>
     <div class="app-nav">
     <ul>
-        <li v-for='list in lists' :key='list.id' ><a href=""><span :style="{'background':list.bgc}" ><i :style="{backgroundImage: 'url(' +list.url+')'}"></i></span>
-        <p>{{list.item}}</p>
-        </a></li>
+        <li v-for='list in lists' :key='list.id' >
+            <router-link :to="list.path" class="tiao">
+            <span :style="{'background':list.bgc}" >
+                    <i :style="{backgroundImage: 'url(' +list.url+')'}"></i>
+                </span>
+             <p>{{list.item}}
+              </p>
+            </router-link>
+        </li>
         <!--<li><a href=""><span><i></i></span>
         <p>购物车</p>
         </a></li>
@@ -22,10 +28,10 @@ export default {
   data(){
       return{
 
-          lists:[{id:1,item:'分类',bgc:'#FB6E52',url:'../../../static/images/browse_list_w.png'},
-            {id:2,item:'购物车',bgc:'#48CFAE',url:'../../../static/images/cart_w.png'},
-            {id:3,item:'我的商城',bgc:'#4FC0E8',url:'../../../static/images/member_w.png'},
-            {id:4,item:'每日签到',bgc:'#AC92ED',url:'../../../static/images/mcc_04_w.png'}
+          lists:[{id:1,item:'分类',path:'/category',bgc:'#FB6E52',url:'../../../static/images/browse_list_w.png'},
+            {id:2,item:'购物车',path:'/cart',bgc:'#48CFAE',url:'../../../static/images/cart_w.png'},
+            {id:3,item:'我的商城',path:'/',bgc:'#4FC0E8',url:'../../../static/images/member_w.png'},
+            {id:4,item:'每日签到',path:'/',bgc:'#AC92ED',url:'../../../static/images/mcc_04_w.png'}
           ]
              
           
@@ -52,7 +58,7 @@ export default {
                     color: #555;
                     }
                 
-                a{                  
+                .tiao{                  
                     display: block;
                     width: 100%;
                     height: 100%;

@@ -43,7 +43,7 @@ export default {
         
             bottom: 0;
             font-size: 0.28rem;
-            height: 2.5rem;
+            height: 2.2rem;
             position: fixed;
             width: 100%;
             z-index: 6;
@@ -65,9 +65,10 @@ export default {
                                 margin: 0 auto 0.1rem auto;
                                 opacity: 0.5;
                                  font-size: 1rem;
+                                 color:#999;
                             }
                             p{
-                                    font-size: 0.8rem;
+                                    font-size: 0.55rem;
                                     color: #fff;
                                     line-height: 1rem;
                                     height: 1rem;

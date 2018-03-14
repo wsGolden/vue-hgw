@@ -12,6 +12,10 @@ import store from './store'
 import  '../node_modules/swiper/dist/css/swiper.min.css'
 //directives
 import './modules/directives'
+//mint-ui
+import MintUI from 'mint-ui'
+import 'mint-ui/lib/style.css'
+Vue.use(MintUI)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

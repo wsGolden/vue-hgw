@@ -3,7 +3,11 @@
         <app-head></app-head>
      
         <div id="product_list" class="list">
-    <ul class="goods-secrch-list" >
+    <ul class="goods-secrch-list" 
+         v-infinite-scroll="loadMore"
+        infinite-scroll-disabled="loading"
+        infinite-scroll-distance="10"
+        >
 			<app-food v-for="food in foods" :key="food.goods_id" :food="food"></app-food>
 			
 			<!--<li class="loading"><div class="spinner"><i></i></div>商品数据读取中...</li>-->
@@ -14,18 +18,27 @@
 
 </template>
 <script>
+import { Toast } from 'mint-ui';
 import bus from '../../../modules/bus'
 import axios from 'axios'
 import AppHead from './SearchHead.vue'
 import AppFood from './Searchsome.vue'
 import {mapState} from 'vuex'
+import { InfiniteScroll } from 'mint-ui';
+import Vue from 'vue'
+Vue.use(InfiniteScroll);
 // http://www.hangowa.com/mo_bile/index.php?act=goods&op=goods_list&keyword=%E8%8B%B9%E6%9E%9C&page=10&curpage=1&keyword=%E8%8B%B9%E6%9E%9C
 export default {
     name:"searchitem",
     data(){
         return{
             //  mmm:"",
-             foods:[]
+             foods:[],
+             curpage:1,
+             page:10,
+             loading:false,
+             hashMore:true,
+             keyword:this.mmm
         }
       
     },
@@ -39,26 +52,48 @@ export default {
     },
     methods:{
          getGoods(qqq){
-
+          if(!this.hashMore){
+              //提示：没有更多数据了
+              Toast({
+                message: '没有更多数据了',
+                position: 'bottom',
+                duration: 1500
+              });
+              return ;
+          }
+          //提示：请稍等...
+            let toast = Toast({
+                message: '正在加载...',
+                iconClass: 'fa fa-spinner fa-pulse',
+                duration:-1
+            });
+          this.loading = true
+          let {page,curpage,keyword} = this
                 // console.log()
-				axios.get(this.$root.config.host+'it/mo_bile/index.php?act=goods&op=goods_list&keyword='+qqq+'&page=10&curpage=1&keyword='+qqq)
-					
-				.then(res=>{
+				axios.get(this.$root.config.host+'it/mo_bile/index.php?act=goods&op=goods_list&keyword='+qqq+'&page='+this.page+'&curpage='+curpage+'&keyword='+qqq
+                   
+            ).then(res=>{
+                     toast.close()
                     console.log(res)
-                    
-                    this.foods = res.data.datas.goods_list
+                    // this.foods = res.data.datas.goods_list
+                    this.foods = this.foods.concat(res.data.datas.goods_list)
                     console.log(this.foods)
+                     this.hashMore = Boolean(res.hasmore)
+                     console.log(res.data.hasmore)
+                    this.curpage++
+                    this.loading=false
 					// this.goods = res.data.datas.list.slice(1,4)
-					// console.log(this.goods)
+					console.log(this.curpage)
 					// console.log(this.goods[0])
 					// console.log( res.good.goods.item.goods_id)
 				})
-			}
-		},
-        mounted: function() {
-                console.log(this.mmm)
-                this.getGoods(this.mmm)
-        },
+			},
+            loadMore () {
+              this.getGoods(this.mmm)
+            },
+	},
+
+
 
 }
 </script>

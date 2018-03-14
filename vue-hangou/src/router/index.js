@@ -7,6 +7,7 @@ import SearchItem from '../components/common/Search/SearchItem.vue'
 import Discovery from '../components/Discovery/Discovery.vue'
 import Category from '../components/Category/Category.vue'
 import User from '../components/User/User.vue'
+import Cart from '../components/Cart/Cart.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -45,6 +46,11 @@ export default new Router({
       path: '/user',
       name: 'User',
       component: User
+    },
+    {
+      path: '/cart',
+      name: 'cart',
+      component: Cart
     }
   ]
 })
