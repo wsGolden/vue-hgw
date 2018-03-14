@@ -5,13 +5,16 @@
 			<div class="scroller-box">
 				<div class="member-top">
 					<div class="member-info">
-						<a href="login.html" class="default-avatar" style="display:block;"></a>
-						<a href="#login" class="login">点击登录</a>
+						<router-link :to="{name:'Login'}" class="default-avatar" style="display:block;"></router-link> 
+						<router-link class="login" :to="{name:'Login'}">
+							点击登录
+							</router-link> 
+					
 					</div>
 					<div class="member-collect">
 						<span v-for="item in collectNav" :key="item.id">
 							<a href="login.html">
-								<i :class="[fa,item.f]"></i>
+								<i :class="[item.f]"></i>
 								<p>{{item.title}}</p>
 							</a> 
 						</span>										
@@ -29,7 +32,7 @@
 				            <ul id="order_ul">
 				            	<li v-for="i in centerNav" :key="i.id">
 				            		<a href="login.html">
-				            			<i :class="[fa,i.f]"></i>
+				            			<i :class="[i.f]"></i>
 				            			<p>{{i.title}}</p>
 				            		</a>
 				            	</li>				            					            	
@@ -75,6 +78,7 @@
 				</div>				
 			</div>				  
 		</div>
+		<app-footer-wrap></app-footer-wrap>
 		<app-footer></app-footer>
 	</div>
 	
@@ -84,25 +88,25 @@
 	 
 	import UserHeader from './UserHeader'
 	import AppFooter from '../common/Footer'
-	
+	import AppFooterWrap from '../common/Footer-wrap'
 	export default{
 		name:'app-user',
 		components:{
-			UserHeader,AppFooter
+			UserHeader,AppFooter,AppFooterWrap
 		},
 		data(){
 			return{
 				collectNav:[
-					{id:1,title:'商品收藏',f:'fa-heart-o',path:'/login'},
-					{id:2,title:'店铺收藏',f:'fa-diamond',path:'/login'},
-					{id:3,title:'我的足迹',f:'fa-eye',path:'/login'}
+					{id:1,title:'商品收藏',f:'fa fa-heart-o',path:'/login'},
+					{id:2,title:'店铺收藏',f:'fa fa-diamond',path:'/login'},
+					{id:3,title:'我的足迹',f:'fa fa-eye',path:'/login'}
 				],
 				centerNav:[
-					{id:1,title:'代付款',f:'fa-heart-o',path:'/login'},
-					{id:2,title:'待收货',f:'fa-diamond',path:'/login'},
-					{id:3,title:'待自提',f:'fa-eye',path:'/login'},
-					{id:4,title:'待评价',f:'fa-heart-o',path:'/login'},
-					{id:5,title:'退款/退货',f:'fa-diamond',path:'/login'}
+					{id:1,title:'代付款',f:'fa fa-heart-o',path:'/login'},
+					{id:2,title:'待收货',f:'fa fa-diamond',path:'/login'},
+					{id:3,title:'待自提',f:'fa fa-eye',path:'/login'},
+					{id:4,title:'待评价',f:'fa fa-heart-o',path:'/login'},
+					{id:5,title:'退款/退货',f:'fa fa-diamond',path:'/login'}
 				]
 			}
 		}

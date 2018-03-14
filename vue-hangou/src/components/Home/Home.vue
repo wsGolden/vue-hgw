@@ -5,7 +5,10 @@
      <img src="../../../static/images/banner.jpg" alt="">
       <app-nav></app-nav>
       <app-good></app-good>
+         <app-footer-wrap></app-footer-wrap>
+         <back-top></back-top>
       <app-footer></app-footer>
+
   </div>
 
 </template>
@@ -15,6 +18,8 @@ import AppHeader from './Header'
 import AppNav from './Nav'
 import AppGood from './Goods'
 import AppFooter from '../common/Footer'
+import AppFooterWrap from '../common/Footer-wrap'
+import BackTop from '../common/backTop/backTop'
 export default {
     name:'home',
 		data(){
@@ -23,7 +28,7 @@ export default {
             }
 		},
 		components:{
-			AppHeader,AppNav,AppGood,AppFooter
+			AppHeader,AppNav,AppGood,AppFooter,AppFooterWrap,BackTop
 		}
 }
 

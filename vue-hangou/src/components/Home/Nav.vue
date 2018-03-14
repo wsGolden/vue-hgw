@@ -10,15 +10,6 @@
               </p>
             </router-link>
         </li>
-        <!--<li><a href=""><span><i></i></span>
-        <p>购物车</p>
-        </a></li>
-        <li><a href=""><span><i></i></span>
-        <p>我的商城</p>
-        </a></li>
-        <li><a href=""><span><i></i></span>
-        <p>每日签到</p>
-        </a></li>-->
   </ul>
     </div>
 </template>
@@ -30,7 +21,7 @@ export default {
 
           lists:[{id:1,item:'分类',path:'/category',bgc:'#FB6E52',url:'../../../static/images/browse_list_w.png'},
             {id:2,item:'购物车',path:'/cart',bgc:'#48CFAE',url:'../../../static/images/cart_w.png'},
-            {id:3,item:'我的商城',path:'/',bgc:'#4FC0E8',url:'../../../static/images/member_w.png'},
+            {id:3,item:'我的商城',path:'/user',bgc:'#4FC0E8',url:'../../../static/images/member_w.png'},
             {id:4,item:'每日签到',path:'/',bgc:'#AC92ED',url:'../../../static/images/mcc_04_w.png'}
           ]
              

@@ -34,7 +34,9 @@
 		created(){
 			switch(this.$router.history.current.path){
 	            case '/category': this.navs.splice(1,1);break;
-	            case '/user': this.navs.splice(1,1);this.navs.splice(3,1);break;
+				case '/cart': this.navs.splice(2,1);break;
+	            case '/user': this.navs.splice(1,1);this.navs.splice(2,1);break;
+				 
 	        }
 		}
 
@@ -50,11 +52,12 @@
 	    bottom: 0;
 	    left: 0;
 	    background-color: transparent;
-	    z-index:9999;
+		margin-top: 20px;
+	    z-index:9;
 	    .nctouch-nav-menu {
 		    display: block;
 		    position: absolute;
-		    top: 1.1rem;
+		    top:0rem;
 		    right: 0.3rem;
 		    width: 5rem;
 		    .arrow {

@@ -10,13 +10,14 @@
                 <div class="header-title">
                     <h1>购物车</h1>
                 </div>
-                <div class="header-r">
-                    <a id="header-nav" href="javascript:void(0);"><i class="more"></i><sup></sup></a>
+                <div class="header-r" @click="toggleNav()">
+                    <a id="header-nav" href="javascript:void(0);" ><i class="more"></i><sup></sup></a>
+                    <nctouch-nav v-if="isNavShow" :isNavShow="isNavShow" :toggleNav="toggleNav"></nctouch-nav>
                 </div>
             </div>
-            <div class="nctouch-nav-layout">
-               <!--放导航-->
-            </div>
+            <!--<div class="nctouch-nav-layout">-->
+             
+            <!--</div>-->
         </header>
         <div class="nctouch-main-layout">
              <div id="cart-list-wp">
@@ -91,13 +92,17 @@
 <script>
 import {mapState,mapMutations,mapGetters} from 'vuex'
 import {CONSTROL_CAR_GOODS} from '../../store/shop/const'
+import NctouchNav from '../NctouchNav/NctouchNav'
 export default {
     name:'app-cart',
       data () {
         return {
-            
+            isNavShow:false
         }
      },
+     components:{
+			NctouchNav
+		},		
       computed: {
             ...mapState({
                 cars:state=>state.shop.cars
@@ -105,7 +110,10 @@ export default {
             ...mapGetters(['all_info'])
         },
         methods:{
-        ...mapMutations([CONSTROL_CAR_GOODS])
+        ...mapMutations([CONSTROL_CAR_GOODS]),
+        toggleNav(){				
+				this.isNavShow = !this.isNavShow
+			}
         },
         mounted () {
             console.log(this)
@@ -173,7 +181,7 @@ export default {
                 }
                 .header-r {
                     position: absolute;
-                    z-index: 1;
+                    z-index:99;
                     top: 0;
                     right: 0;
                     font-size: 0;

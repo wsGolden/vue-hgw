@@ -8,7 +8,7 @@
       <dd id="hot_list_container">
     <ul>
 
-	<li v-for="(food,i) in foods" :key="food.id"><a href="">{{food}}</a></li>
+	<li v-for="(food,i) in foods" :key="food.id"><router-link :to="{name:'searchitem',params:{idd:food}}"  class="sear">{{food}}</router-link></li>
 
 
 
@@ -18,10 +18,10 @@
       <dt>历史纪录</dt>
       <dd id="search_his_list_container"><ul>
 
-	<li v-for="btnM in btnMs" :key="btnM.id"><a href="">{{btnM}}</a></li>
+	<li v-for="btnM in btnMs" :key="btnM.id"><a href="" class="sear">{{btnM}}</a></li>
 
 
-</ul><a href="javascript:void(0);" class="clear-history" >清空历史</a></dd>
+    </ul><a href="javascript:void(0);" class="clear-history" >清空历史</a></dd>
     </dl>
   </div>
 </div>
@@ -35,6 +35,7 @@ import AppFooter from '../Footer.vue'
 import AppHead from './SearchHead.vue'
 import axios from 'axios'
 import {mapState ,mapActions} from 'vuex'
+import {GET_LIST} from '../../../store/search/const'
 // http://www.hangowa.com/mo_bile/index.php?act=index&op=search_key_list
 export default {
     name:"search",
@@ -43,7 +44,6 @@ export default {
     },
     data(){
         return{
-            foods:[],
             msg:""
         }
     },
@@ -51,18 +51,15 @@ export default {
         ...mapState({
                     btnMs:state=>state.search.list
                 }),
+       ...mapState({
+                    foods:state=>state.search.serBox
+                }),
          
     },
     methods:{
         getList(){
-				//this.$root.config.host是在modules下的config文件里配置的域名
-				//mz是和config目录里index文件配置的信息交互
-				//this.$route.params.id可以获取到id值
-				axios.get("/mo_bile/index.php?act=index&op=search_key_list").then(res=>{
-                    // console.log(res.data.datas.list)
-					this.foods = res.data.datas.list
-
-				})
+            this.$store.dispatch(GET_LIST)
+			
 			},
             delBtnMs(){
                 btnMs:[]
@@ -71,6 +68,7 @@ export default {
     created(){
 			//初始化数据时调用执行获取数据的方法
 			this.getList()
+            
 	}
    
 }
@@ -109,7 +107,7 @@ export default {
                                         background-color: #FFF;
                                         border: solid 0.05rem #EEE;
                                         margin: 0 0.4rem 0.4rem 0;
-                                         a {
+                                         .sear{
                                             display: block;
                                             padding: 0.2rem 0.5rem;
                                             font-size: 0.6rem;

@@ -2,7 +2,8 @@
 let state = {
 
     message:"",
-    list:[]
+    list:[],
+    serBox:[]
 }
 
 export default state

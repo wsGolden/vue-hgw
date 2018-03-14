@@ -169,11 +169,11 @@
 							<i class="fa fa-headphones"></i>
 							<p>客服</p>
 						</a> 
-						<a href="../tmpl/cart_list.html" class="cart">
+						<router-link :to="{name:'cart'}" class="cart">
 							<i class="fa  fa-shopping-cart"></i>
 							<p>购物车</p>
 							<span id="cart_count1"></span>
-						</a>
+						</router-link>
 					</div>
 					<div class="buy-handle ">
 						
@@ -260,7 +260,7 @@ import {CONSTROL_CAR_GOODS} from '../../store/shop/const'
 //			console.log(this)
 			//path
 			this.$route.params.id
-			this.add=this.$route.params.id
+			// this.add=this.$route.params.id
 			console.log(this.$route.params.id)
 //			console.log(this.$route.params.id)
 ////			//query
@@ -523,8 +523,8 @@ import {CONSTROL_CAR_GOODS} from '../../store/shop/const'
 .goods-option-foot .otreh-handle a { position: relative; z-index: auto; display: inline-block; height: 1.95rem; text-align: center; color: #333; border-top: solid 0.05rem #DDD;}
 .goods-detail-foot .otreh-handle a.kefu,
 .goods-option-foot .otreh-handle a.kefu { width: 44%;}
-.goods-detail-foot .otreh-handle a.cart,
-.goods-option-foot .otreh-handle a.cart { width: 55%; border-left: solid 0.05rem #DDD;}
+.goods-detail-foot .otreh-handle .cart,
+.goods-option-foot .otreh-handle .cart { width: 55%; border-left: solid 0.05rem #DDD;}
 .goods-detail-foot .otreh-handle a i,
 .goods-option-foot .otreh-handle a i { display:block; width: 3rem; height: 3rem; margin: 0.15rem auto 0.05rem auto; background-repeat: no-repeat; background-position: 50% 50%; background-size: 80%; opacity: 0.65;}
 .goods-detail-foot .otreh-handle a.kefu i,

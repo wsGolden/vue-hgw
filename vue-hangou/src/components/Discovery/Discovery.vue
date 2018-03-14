@@ -4,6 +4,8 @@
 		<discovery-banner :BannerDatas="BannerDatas"></discovery-banner>
 		<discovery-images :SmallImages="SmallImages" :HomeImages="HomeImages"></discovery-images>
 		<discovery-goods :GoodsData="GoodsData" :cuts="cuts"></discovery-goods>	
+		         <app-footer-wrap></app-footer-wrap>
+				  <back-top></back-top>
 		 <app-footer></app-footer>
 	</div>
 </template>
@@ -15,10 +17,12 @@
 	import DiscoveryImages from './DiscoveryImages'
 	import DiscoveryGoods from './DiscoveryGoods'
 	import AppFooter from '../common/Footer'
+	import AppFooterWrap from '../common/Footer-wrap'
+	import BackTop from '../common/backTop/backTop'
 	export default{
 		name:'app-discovery',
 		components:{
-			DiscoveryHeader,DiscoveryBanner,DiscoveryImages,DiscoveryGoods,AppFooter
+			DiscoveryHeader,DiscoveryBanner,DiscoveryImages,DiscoveryGoods,AppFooter,AppFooterWrap,BackTop
 		},
 		data(){
 			return{

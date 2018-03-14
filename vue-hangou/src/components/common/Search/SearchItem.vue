@@ -14,6 +14,7 @@
 			
 	</ul>
   </div>
+  <back-top></back-top>
     </div>
 
 </template>
@@ -24,9 +25,9 @@ import axios from 'axios'
 import AppHead from './SearchHead.vue'
 import AppFood from './Searchsome.vue'
 import {mapState} from 'vuex'
-import { InfiniteScroll } from 'mint-ui';
-import Vue from 'vue'
-Vue.use(InfiniteScroll);
+import { InfiniteScroll } from 'mint-ui'
+import BackTop from '../backTop/backTop'
+
 // http://www.hangowa.com/mo_bile/index.php?act=goods&op=goods_list&keyword=%E8%8B%B9%E6%9E%9C&page=10&curpage=1&keyword=%E8%8B%B9%E6%9E%9C
 export default {
     name:"searchitem",
@@ -38,16 +39,18 @@ export default {
              page:10,
              loading:false,
              hashMore:true,
-             keyword:this.mmm
+             keyword:this.mmm,
+             goodmsg:''
         }
       
     },
     components:{
-        AppHead,AppFood
+        AppHead,AppFood,BackTop
     },
     computed:{
         ...mapState({
-				mmm:state=>state.search.message
+				mmm:state=>state.search.message,
+                serC:state=>state.search.serBox,
 			})
     },
     methods:{
@@ -84,16 +87,20 @@ export default {
                     this.loading=false
 					// this.goods = res.data.datas.list.slice(1,4)
 					console.log(this.curpage)
-					// console.log(this.goods[0])
-					// console.log( res.good.goods.item.goods_id)
 				})
 			},
             loadMore () {
-              this.getGoods(this.mmm)
+                console.log(this.mmm)
+                  if(!this.mmm){
+                        this.getGoods(this.$route.params.idd)
+                        return;
+                    }
+                 this.getGoods(this.mmm)
             },
+          
 	},
 
-
+        
 
 }
 </script>

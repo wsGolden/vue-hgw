@@ -6,7 +6,7 @@
             <div class="header-wrap">
                 <router-link :to="{name:'search'}" class="header-inp">
                 	<i class='ssearch'></i></router-link> 
-                <a href="" class="m-cart"></a>
+                <router-link :to="{name:'cart'}" class="m-cart"></router-link>
             </div>
     </header>
   </div>
