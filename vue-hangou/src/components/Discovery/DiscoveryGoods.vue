@@ -4,7 +4,7 @@
 			<h2>{{item.title}}</h2>
 			<ul class="goods-list">		
 				<li v-for="i in item.item" :key="i.goods_id">
-					<a href="tmpl/product_detail.html?goods_id=101273">
+					<div @click="toDetail(i.goods_id)" class="goodsitem">
 						<div class="goods-pic">
 							<img :src="i.goods_image" alt="" style="display: inline;">
 						</div>
@@ -12,7 +12,7 @@
 							<dt class="goods-name">{{i.goods_name}}</dt>
 							<dd class="goods-price">￥<em>{{i.goods_promotion_price}}</em></dd>
 						</dl>
-					</a>
+					</div>
 				</li>
 		
 			</ul>
@@ -23,7 +23,12 @@
 <script>
 	export default{
 		name:'discovery-goods',
-		props:['GoodsData']
+		props:['GoodsData'],
+		methods:{
+			toDetail(id){
+				this.$router.push({name:'Detail',params:{id}})
+			}
+		}
 		
 	}
 </script>
@@ -52,7 +57,7 @@
 		    width: 47%;
 		    overflow: hidden;
 		    border-radius: 0.2rem;
-		    a{
+		    .goodsitem{
 		    	display: block;
 		    	.goods-pic{
 		    		width: 100%;

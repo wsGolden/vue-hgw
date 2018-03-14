@@ -7,8 +7,12 @@ import SearchItem from '../components/common/Search/SearchItem.vue'
 import Discovery from '../components/Discovery/Discovery.vue'
 import Category from '../components/Category/Category.vue'
 import User from '../components/User/User.vue'
+//<<<<<<< HEAD
 import Login from '../components/Login/Login.vue'
 import Register from '../components/Register/Register.vue'
+//=======
+import Cart from '../components/Cart/Cart.vue'
+//>>>>>>> 737294bfe02f1c176989090ce3e05ddb88c9a5b8
 Vue.use(Router)
 
 export default new Router({
@@ -49,6 +53,7 @@ export default new Router({
       component: User
     },
     {
+//<<<<<<< HEAD
     	path: '/login',
       name: 'Login',
       component: Login
@@ -57,6 +62,13 @@ export default new Router({
     	path: '/register',
       name: 'Register',
       component: Register
+    },
+    {
+//=======
+      path: '/cart',
+      name: 'cart',
+      component: Cart
+//>>>>>>> 737294bfe02f1c176989090ce3e05ddb88c9a5b8
     }
   ]
 })

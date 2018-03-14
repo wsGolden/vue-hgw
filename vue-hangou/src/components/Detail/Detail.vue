@@ -177,7 +177,16 @@
 					</div>
 					<div class="buy-handle ">
 						
-						<a href="javascript:void(0);" class="add-cart" id="add-cart">加入购物车</a>
+						<a href="javascript:void(0);" class="add-cart" id="add-cart"
+						@click="CONSTROL_CAR_GOODS({
+								id:goods.goods_info.goods_id,
+								price:goods.goods_info.goods_price,
+								name:goods.goods_info.goods_name,
+								num,
+								type:1,
+								image:goods_image[0],
+								})"
+						>加入购物车</a>
 						
 						<a href="javascript:void(0);" class="buy-now" id="buy-now">立即购买</a>
 					</div>
@@ -195,6 +204,8 @@
 	import axios from 'axios'
 import Swiper from 'swiper'	
 import NctouchNav from '../NctouchNav/NctouchNav.vue'
+import {mapMutations} from 'vuex'
+import {CONSTROL_CAR_GOODS} from '../../store/shop/const'
 	export default{
         name:'detail',
 		data(){
@@ -233,6 +244,7 @@ import NctouchNav from '../NctouchNav/NctouchNav.vue'
 
 				})
 			},
+			 ...mapMutations([CONSTROL_CAR_GOODS]),
 			toDetail(id){
 //				this.$router.push({name:'detail',params:{id},query:{name}})
 //	$router.push方法可以进行页面的跳转

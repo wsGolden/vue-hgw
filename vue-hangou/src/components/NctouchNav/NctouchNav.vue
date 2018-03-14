@@ -25,7 +25,7 @@
 				navs:[
 					{id:1,title:'首页',f:'fa-home',path:'/'},
 					{id:2,title:'搜索',f:'fa-search',path:'/search'},
-					{id:3,title:'购物车',f:'fa-shopping-cart',path:'/shop'},
+					{id:3,title:'购物车',f:'fa-shopping-cart',path:'/cart'},
 					{id:4,title:'我的商城',f:'fa-user-o',path:'/user'},
 					{id:5,title:'消息',f:'fa-commenting-o',path:'/'}
 				]

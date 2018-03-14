@@ -3,7 +3,7 @@
 		<discovery-header></discovery-header>		
 		<discovery-banner :BannerDatas="BannerDatas"></discovery-banner>
 		<discovery-images :SmallImages="SmallImages" :HomeImages="HomeImages"></discovery-images>
-		<discovery-goods :GoodsData="GoodsData"></discovery-goods>	
+		<discovery-goods :GoodsData="GoodsData" :cuts="cuts"></discovery-goods>	
 		 <app-footer></app-footer>
 	</div>
 </template>
@@ -25,7 +25,8 @@
 				BannerDatas:[],
 				SmallImages:{},
 				HomeImages:{},
-				GoodsData:[]
+				GoodsData:[],
+				cuts:[]
 			}
 		},
 		methods:{
@@ -37,6 +38,8 @@
 						special_id:1
 					}
 				}).then(res=>{
+					console.log(res.data.datas.list.slice(3,5))
+					this.cuts = res.data.datas.list.slice(1,4)
 					this.BannerDatas=res.data.datas.list[0].adv_list.item
 					this.SmallImages=res.data.datas.list[1].explode3
 					this.HomeImages=res.data.datas.list[2].home3
@@ -44,6 +47,7 @@
 					this.GoodsData.push(res.data.datas.list[4].goods)
 				})
 			}
+
 		},
 		created(){
 			this.getData()
