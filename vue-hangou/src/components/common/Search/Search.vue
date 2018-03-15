@@ -8,7 +8,7 @@
       <dd id="hot_list_container">
     <ul>
 
-	<li v-for="(food,i) in foods" :key="food.id"><router-link :to="{name:'searchitem',params:{idd:food}}"  class="sear">{{food}}</router-link></li>
+	<li v-for="(food,i) in foods" :key="food.id"><router-link :to="{name:'searchitem',params:{idd:food}}" @click.native="btnMsg(food)" class="sear">{{food}}</router-link></li>
 
 
 
@@ -61,9 +61,12 @@ export default {
             this.$store.dispatch(GET_LIST)
 			
 			},
-            delBtnMs(){
-                btnMs:[]
-            }
+       delBtnMs(){
+             btnMs:[]
+            },
+       btnMsg(food){
+          this.$store.dispatch("addTodoA",food);
+      }
     },
     created(){
 			//初始化数据时调用执行获取数据的方法

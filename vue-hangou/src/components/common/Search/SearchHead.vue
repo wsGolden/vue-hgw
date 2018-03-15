@@ -14,7 +14,7 @@
                     <span class="input-del"></span>
                 </div>
                 <div class="header-r">
-                    <router-link @click.native="inpMsg();btnMsg()" :to="{name:'searchitem'}" id="header-nav"  class="search-btn" >搜索</router-link>
+                    <router-link   @click.native="btnMsg()" :to="{name:'searchitem',params:{sears:this.msg}}" id="header-nav"  class="search-btn" >搜索</router-link>
                 </div>
             </div>
         </header>
@@ -32,9 +32,6 @@ export default {
         }
     },
     methods:{
-      inpMsg(){
-         this.$store.dispatch("sendMsg", this.msg);
-      },
       btnMsg(){
           this.$store.dispatch("addTodoA", this.msg);
       }

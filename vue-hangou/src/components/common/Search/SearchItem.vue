@@ -15,6 +15,7 @@
 	</ul>
   </div>
   <back-top></back-top>
+        <app-footer></app-footer>
     </div>
 
 </template>
@@ -24,37 +25,26 @@ import bus from '../../../modules/bus'
 import axios from 'axios'
 import AppHead from './SearchHead.vue'
 import AppFood from './Searchsome.vue'
-import {mapState} from 'vuex'
 import { InfiniteScroll } from 'mint-ui'
 import BackTop from '../backTop/backTop'
-
+import AppFooter from '../Footer.vue'
 // http://www.hangowa.com/mo_bile/index.php?act=goods&op=goods_list&keyword=%E8%8B%B9%E6%9E%9C&page=10&curpage=1&keyword=%E8%8B%B9%E6%9E%9C
 export default {
     name:"searchitem",
     data(){
         return{
-            //  mmm:"",
              foods:[],
              curpage:1,
              page:10,
              loading:false,
              hashMore:true,
-             keyword:this.mmm,
-             goodmsg:''
         }
-      
     },
     components:{
-        AppHead,AppFood,BackTop
-    },
-    computed:{
-        ...mapState({
-				mmm:state=>state.search.message,
-                serC:state=>state.search.serBox,
-			})
+        AppHead,AppFood,BackTop,AppFooter
     },
     methods:{
-         getGoods(qqq){
+         getGoods(goodWord){
           if(!this.hashMore){
               //提示：没有更多数据了
               Toast({
@@ -71,37 +61,24 @@ export default {
                 duration:-1
             });
           this.loading = true
-          let {page,curpage,keyword} = this
+          let {page,curpage} = this
                 // console.log()
-				axios.get(this.$root.config.host+'it/mo_bile/index.php?act=goods&op=goods_list&keyword='+qqq+'&page='+this.page+'&curpage='+curpage+'&keyword='+qqq
-                   
+			axios.get(this.$root.config.host+'it/mo_bile/index.php?act=goods&op=goods_list&keyword='+goodWord+'&page='+this.page+'&curpage='+curpage+'&keyword='+goodWord  
             ).then(res=>{
                      toast.close()
-                    console.log(res)
-                    // this.foods = res.data.datas.goods_list
+                    // console.log(res)
                     this.foods = this.foods.concat(res.data.datas.goods_list)
-                    console.log(this.foods)
-                     this.hashMore = Boolean(res.hasmore)
-                     console.log(res.data.hasmore)
+                    this.hashMore = Boolean(res.hasmore)
                     this.curpage++
                     this.loading=false
-					// this.goods = res.data.datas.list.slice(1,4)
-					console.log(this.curpage)
 				})
 			},
             loadMore () {
-                console.log(this.mmm)
-                  if(!this.mmm){
-                        this.getGoods(this.$route.params.idd)
-                        return;
-                    }
-                 this.getGoods(this.mmm)
+                this.getGoods(this.$route.params.sears)
+                this.getGoods(this.$route.params.idd)
+                this.getGoods(this.$route.params.cates)
             },
-          
-	},
-
-        
-
+	}
 }
 </script>
 <style lang="scss" scoped>

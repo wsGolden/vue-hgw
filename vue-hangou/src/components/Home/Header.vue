@@ -1,15 +1,15 @@
 <template>
 
 <div class="app-header">
-        <header id="header" class="transparent">
-            <div class="logo"></div>
-            <div class="header-wrap">
-                <router-link :to="{name:'search'}" class="header-inp">
-                	<i class='ssearch'></i></router-link> 
-                <router-link :to="{name:'cart'}" class="m-cart"></router-link>
-            </div>
-    </header>
-  </div>
+    <header id="header" class="transparent">
+        <div class="logo"></div>
+        <div class="header-wrap">
+            <router-link :to="{name:'search'}" class="header-inp">
+                <i class='ssearch'></i></router-link> 
+            <router-link :to="{name:'cart'}" class="m-cart"></router-link>
+        </div>
+        </header>
+</div>
 
 </template>
 <script>

@@ -9,7 +9,7 @@
 				</a>
 			</dt>							
 			<dd v-for="i in item.child">
-				<a href="#">{{i.cat_name}}</a>
+				<router-link class="cate" :to="{name:'searchitem',params:{cates:i.cat_name}}">{{i.cat_name}}</router-link>
 			</dd>										
 		</dl>
 	</div>
@@ -80,7 +80,7 @@
 			    padding: 0.2rem;
 			    margin-left: 0.3rem;
 			    border-radius: 0;
-			    a{
+			    .cate{
 			    	display: block;
 				    color: #444;
 				    white-space: nowrap;

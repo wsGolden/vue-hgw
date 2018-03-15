@@ -1,7 +1,5 @@
 
 let state = {
-
-    message:"",
     list:[],
     serBox:[]
 }

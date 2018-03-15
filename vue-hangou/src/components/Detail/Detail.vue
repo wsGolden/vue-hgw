@@ -271,6 +271,7 @@ import {CONSTROL_CAR_GOODS} from '../../store/shop/const'
 		updated(){
 			new Swiper('.goods-detail-top',{
 				loop:true,
+				autoplay:true,
 				 pagination: {
 					el: '.swiper-pagination',
 					},
@@ -333,18 +334,10 @@ import {CONSTROL_CAR_GOODS} from '../../store/shop/const'
 
             }
 			.swiper-pagination{
-				top:230px;
+				top:300px;
 				left:140px;
-				
-				.swiper-pagination-bullet{
-					display: inline-block;
-					width: 0.35rem;
-					height: 0.35rem;
-					margin-right: 0.25rem;
-					background-color: #BBB;
-					border-radius: 100%;
-					
-				}
+				display: inline-block;
+			margin-right: 0.25rem;
 			}
 .goods-detail-cnt { background: #F5F5F5; position: relative; z-index: 1; margin-top: 16rem;}
 .goods-detail-top { background-color: #FFF; display: block; position: fixed; z-index: -1; left: 0; right: 0; top: 0;}
