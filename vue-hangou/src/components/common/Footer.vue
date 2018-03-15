@@ -21,7 +21,7 @@
                 </router-link>
             </li>
              <li>
-                <router-link class="footss" :to="{name:'Category'}">
+                <router-link class="footss" :to="{name:'User'}">
                     <i class="fa fa-user-circle-o"></i>
                     <p>我的商城</p>
                  </router-link>
