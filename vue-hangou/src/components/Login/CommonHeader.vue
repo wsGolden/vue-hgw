@@ -21,20 +21,17 @@
 		name:'common-header',
 		data(){
 			return{
-				datas:{},
-				
+				datas:{title1:'会员注册',title2:'登录',path:'/login'},				
 			}
 		},
-		mounted(){
-			switch(this.$route.name){
-				case 'Login': this.datas={title1:'登录',title2:'注册',path:'/register'};break;
-				case 'Register':this.datas={title1:'会员注册',title2:'登录',path:'/login'};break;
+		mounted(){			
+			if(this.$route.name === 'Login'){
+				this.datas={title1:'登录',title2:'注册',path:'/register'}
 			}
-			this.$router.beforeEach((to, from, next) => {
-				console.log(to.name)
+			this.$router.beforeEach((to, from, next) => {			
 			    switch(to.name){
 					case 'Login': this.datas={title1:'登录',title2:'注册',path:'/register'};break;
-					case 'Register':this.datas={title1:'会员注册',title2:'登录',path:'/login'};break;
+//					case 'Register':this.datas={title1:'会员注册',title2:'登录',path:'/login'};break;
 				}
 			    next()
 			})

@@ -9,7 +9,6 @@
 						<router-link class="login" :to="{name:'Login'}">
 							点击登录
 							</router-link> 
-					
 					</div>
 					<div class="member-collect">
 						<span v-for="item in collectNav" :key="item.id">
@@ -146,8 +145,40 @@
 			    height: 4rem;
 			    margin: 0 auto;
 			    border-radius: 100%;
-			    
+			    animation: changeBg 20s infinite;			    	    
 			}
+			@keyframes changeBg{
+	            0% {
+				    background-color: #ED5564;
+				}
+				10% {
+				    background-color: #FB6E52;
+				}
+				20% {
+				    background-color: #FFCE55;
+				}
+				30% {
+				    background-color: #A0D468;
+				}
+				40% {
+				    background-color: #48CFAE;
+				}
+				50% {
+				    background-color: #4FC0E8;
+				}
+				60% {
+				    background-color: #5D9CEC;
+				}
+				70% {
+				    background-color: #AC92ED;
+				}
+				80% {
+				    background-color: #EC87BF;
+				}
+				90% {
+				    background-color: #ED5564;
+				}
+	        }
 			.login{
 			    font-size: 0.8rem;
 			    color: #FFF;
